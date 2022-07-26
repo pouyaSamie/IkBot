@@ -1,11 +1,3 @@
-""""
-Copyright © Krypton 2021 - https://github.com/kkrypt0nn (https://krypt0n.co.uk)
-Description:
-This is a template to create your own discord bot in python.
-
-Version: 4.1
-"""
-
 import json
 import os
 import platform
@@ -79,7 +71,7 @@ async def status_task() -> None:
     """
     Setup the game status task of the bot
     """
-    statuses = ["with you!", "with Krypton!", "with humans!"]
+    statuses = ["with you!", "with The Devil!", "with humans!"]
     await bot.change_presence(activity=disnake.Game(random.choice(statuses)))
 
 
@@ -172,7 +164,7 @@ async def on_command_completion(context: Context) -> None:
     """
     full_command_name = context.command.qualified_name
     split = full_command_name.split(" ")
-    executed_command = str(split[0])
+    executed_command = str(split[0]) 
     print(
         f"Executed {executed_command} command in {context.guild.name} (ID: {context.message.guild.id}) by {context.message.author} (ID: {context.message.author.id})")
 

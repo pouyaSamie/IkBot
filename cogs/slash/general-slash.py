@@ -1,11 +1,3 @@
-""""
-Copyright © Krypton 2021 - https://github.com/kkrypt0nn (https://krypt0n.co.uk)
-Description:
-This is a template to create your own discord bot in python.
-
-Version: 4.1
-"""
-
 import json
 import os
 import platform
@@ -41,7 +33,7 @@ class General(commands.Cog, name="general-slash"):
         :param interaction: The application command interaction.
         """
         embed = disnake.Embed(
-            description="Used [Krypton's](https://krypt0n.co.uk) template",
+            description="Developed by DevilHimSelf",
             color=0x9C84EF
         )
         embed.set_author(
@@ -49,7 +41,7 @@ class General(commands.Cog, name="general-slash"):
         )
         embed.add_field(
             name="Owner:",
-            value="Krypton#7331",
+            value="DevilHimSelf#3129",
             inline=True
         )
         embed.add_field(
@@ -150,60 +142,7 @@ class General(commands.Cog, name="general-slash"):
         except disnake.Forbidden:
             await interaction.send(embed=embed)
 
-    @commands.slash_command(
-        name="server",
-        description="Get the invite link of the discord server of the bot for some support.",
-    )
-    @checks.not_blacklisted()
-    async def server(self, interaction: ApplicationCommandInteraction) -> None:
-        """
-        Get the invite link of the discord server of the bot for some support.
-        :param interaction: The application command interaction.
-        """
-        embed = disnake.Embed(
-            description=f"Join the support server for the bot by clicking [here](https://discord.gg/mTBrXyWxAF).",
-            color=0xD75BF4
-        )
-        try:
-            await interaction.author.send(embed=embed)
-            await interaction.send("I sent you a private message!")
-        except disnake.Forbidden:
-            await interaction.send(embed=embed)
-
-    @commands.slash_command(
-        name="8ball",
-        description="Ask any question to the bot.",
-        options=[
-            Option(
-                name="question",
-                description="The question you want to ask.",
-                type=OptionType.string,
-                required=True
-            )
-        ],
-    )
-    @checks.not_blacklisted()
-    async def eight_ball(self, interaction: ApplicationCommandInteraction, question: str) -> None:
-        """
-        Ask any question to the bot.
-        :param interaction: The application command interaction.
-        :param question: The question that should be asked by the user.
-        """
-        answers = ["It is certain.", "It is decidedly so.", "You may rely on it.", "Without a doubt.",
-                   "Yes - definitely.", "As I see, yes.", "Most likely.", "Outlook good.", "Yes.",
-                   "Signs point to yes.", "Reply hazy, try again.", "Ask again later.", "Better not tell you now.",
-                   "Cannot predict now.", "Concentrate and ask again later.", "Don't count on it.", "My reply is no.",
-                   "My sources say no.", "Outlook not so good.", "Very doubtful."]
-        embed = disnake.Embed(
-            title="**My Answer:**",
-            description=f"{random.choice(answers)}",
-            color=0x9C84EF
-        )
-        embed.set_footer(
-            text=f"The question was: {question}"
-        )
-        await interaction.send(embed=embed)
-
+ 
     @commands.slash_command(
         name="bitcoin",
         description="Get the current price of bitcoin.",
